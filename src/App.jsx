@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { UpdateFollower } from "react-mouse-follower";
+import Hero from "./components/Hero/Hero";
+import Services from "./components/Services/Services";
+import Banner from "./components/Banner/Banner";
+import BannerText from "./components/Banner/BannerText";
+import Blogs from "./components/Blogs/Blogs";
+import Footer from "./components/Footer/Footer";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <main className="overflow-x-hidden">
+      <UpdateFollower
+        mouseOptions={{
+          backgroundColor: "white",
+          zIndex: 999,
+          followSpeed: 1.5,
+        }}
+      >
+        <Navbar />
+        <Hero />
+      </UpdateFollower>
+      <UpdateFollower
+        mouseOptions={{
+          backgroundColor: "black",
+          zIndex: 999,
+          followSpeed: 1.5,
+        }}
+      >
+        <Services />
+        <Banner />
+        <BannerText />
+        <Blogs />
+        <Footer />
+      </UpdateFollower>
+    </main>
+  );
+};
 
-export default App
+export default App;
