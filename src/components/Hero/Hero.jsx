@@ -79,13 +79,15 @@ const Hero = () => {
                         <p className="text-xs font-normal text-nowrap">{item.modal}</p>
                       </div>
                     </div>
-
                   )
                 })}
               </div>
             </div>
           </div>
           {/* Hero Image */}
+          <div className="flex flex-col justify-end items-center">
+            <img className="w-[300px] md:w-[400px] xl:w-[550px]" src={activeData.image}></img>
+          </div>
           {/* Whatsapp Icon */}
         </div>
       </section>
