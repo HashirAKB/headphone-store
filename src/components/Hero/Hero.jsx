@@ -3,6 +3,7 @@ import Headphone1 from '../../assets/headphone.png';
 import Headphone2 from '../../assets/headphone2.png';
 import Headphone3 from '../../assets/headphone3.png';
 import Headphone4 from '../../assets/headphone4.png';
+import { FaWhatsapp } from "react-icons/fa";
 
 const headphoneData = [
   {
@@ -30,7 +31,7 @@ const headphoneData = [
     "subtitle": "Comfortable over-ear design for extended listening sessions.",
     "price": "$120",
     "modal": "Modal White",
-    "bgColor": "#f8f9fa"
+    "bgColor": "#007bff"
   },
   {
     "id": 4,
@@ -39,11 +40,14 @@ const headphoneData = [
     "subtitle": "Durable and sweat-resistant, perfect for workouts.",
     "price": "$90",
     "modal": "Modal Blue",
-    "bgColor": "#007bff"
+    "bgColor": "#343a40"
   }  
 ]
 const Hero = () => {
   const [activeData, setActiveData] = React.useState(headphoneData[0]);
+  const handleActiveData = (data) =>{
+   setActiveData(data);
+  }
   return (
     <>
       <section className="bg-brandDark text-white font-varela">
@@ -70,7 +74,10 @@ const Hero = () => {
               <div className="grid grid-cols-4 gap-10">
                 {headphoneData.map((item) => {
                   return(
-                    <div className="grid grid-cols-2 place-items-center cursor-pointer">
+                    <div 
+                    key={item.id}
+                    onClick={() => handleActiveData(item)}
+                    className="grid grid-cols-2 place-items-center cursor-pointer">
                       <div>
                         <img className="w-[200px]" src={item.image}></img>
                       </div>
@@ -89,6 +96,11 @@ const Hero = () => {
             <img className="w-[300px] md:w-[400px] xl:w-[550px]" src={activeData.image}></img>
           </div>
           {/* Whatsapp Icon */}
+          <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[99999] mix-blend-difference">
+          <a href="">
+            <FaWhatsapp/>
+          </a>
+          </div>
         </div>
       </section>
     </>
