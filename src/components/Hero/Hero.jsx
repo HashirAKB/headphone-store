@@ -1,9 +1,11 @@
-import React from "react";
+import React, { act } from "react";
 import Headphone1 from '../../assets/headphone.png';
 import Headphone2 from '../../assets/headphone2.png';
 import Headphone3 from '../../assets/headphone3.png';
 import Headphone4 from '../../assets/headphone4.png';
 import { FaWhatsapp } from "react-icons/fa";
+import { UpdateFollower } from "react-mouse-follower";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 
 const headphoneData = [
   {
@@ -43,6 +45,36 @@ const headphoneData = [
     "bgColor": "#343a40"
   }  
 ]
+
+const fadeUp = (delay) => {
+  return{
+    hidden:{
+      opacity: 0,
+      y: 100,
+      scale: 0.5,
+    },
+    show:{
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition:{
+        duration: 0.5,
+        delay: delay,
+        ease: easeInOut
+      },
+    },
+    exit:{
+      opacity: 0,
+      y:100,
+      scale: 0.5,
+      transition:{
+        duration: 0.2,
+        ease: easeInOut
+      },
+    },
+  };
+};
+
 const Hero = () => {
   const [activeData, setActiveData] = React.useState(headphoneData[0]);
   const handleActiveData = (data) =>{
@@ -55,15 +87,62 @@ const Hero = () => {
           {/* Headphone Info */}
           <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px]">
             <div className="space-y-5 text-center md:text-left">
-              <h1 className="text-3xl lg:text-6xl font-bold font-varela">
-                {activeData.title}
-              </h1>
-              <p className="text-sm leading-loose text-white/80">
-                {activeData.subtitle}
-              </p>
-              <button style={{
+              <AnimatePresence mode="wait">
+                <UpdateFollower
+                  mouseOptions={{
+                    backgroundColor:"white",
+                    zIndex:9999,
+                    followSpeed:0.5,
+                    mixBlendMode:"difference",
+                    scale:10
+                  }}
+                >
+                  <motion.h1 
+                  key={activeData.id}
+                  variants={fadeUp(0.2)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="text-3xl lg:text-6xl font-bold font-varela">
+                    {activeData.title}
+                  </motion.h1>
+                </UpdateFollower>
+              </AnimatePresence>
+              <AnimatePresence mode="wait">
+                  <motion.p 
+                  key={activeData.id}
+                  variants={fadeUp(0.3)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="text-sm leading-loose text-white/80">
+                    {activeData.subtitle}
+                  </motion.p>
+              </AnimatePresence>
+              <AnimatePresence mode="wait">
+              <UpdateFollower
+                  mouseOptions={{
+                    backgroundColor:activeData.bgColor,
+                    zIndex:9999,
+                    followSpeed:0.5,
+                    rotate: -720,
+                    scale:6,
+                    backgroundElement:<div>
+                      <img src={activeData.image}/>
+                    </div>,
+                  }}
+                >
+              <motion.button
+                  key={activeData.id}
+                  variants={fadeUp(0.3)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+              style={{
                 backgroundColor: activeData.bgColor
-              }} className="px-4 py-2 inline-block font-normal rounded-sm">Buy and Listen</button>
+              }} className="px-4 py-2 inline-block font-normal rounded-sm">Buy and Listen</motion.button>
+              </UpdateFollower>
+              </AnimatePresence>
               {/* Headphone list separator */}
               <div className="flex items-center justify-center md:justify-start gap-4 !mt-24">
                 <div className="w-20 h-[1px] bg-white"></div>
