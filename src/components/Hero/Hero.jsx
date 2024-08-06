@@ -153,18 +153,29 @@ const Hero = () => {
               <div className="grid grid-cols-4 gap-10">
                 {headphoneData.map((item) => {
                   return(
-                    <div 
-                    key={item.id}
-                    onClick={() => handleActiveData(item)}
-                    className="grid grid-cols-2 place-items-center cursor-pointer">
-                      <div>
-                        <img className="w-[200px]" src={item.image}></img>
+                    <UpdateFollower
+                    mouseOptions={{
+                      backgroundColor: item.bgColor,
+                      zIndex:9999,
+                      followSpeed:0.5,
+                      rotate: -720,
+                      scale:4,
+                      text: "View Details",
+                      textFontSize:"3px"
+                    }}>
+                      <div 
+                      key={item.id}
+                      onClick={() => handleActiveData(item)}
+                      className="grid grid-cols-2 place-items-center cursor-pointer">
+                        <div>
+                          <img className="w-[200px]" src={item.image}></img>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-base font-bold">{item.price}</p>
+                          <p className="text-xs font-normal text-nowrap">{item.modal}</p>
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <p className="text-base font-bold">{item.price}</p>
-                        <p className="text-xs font-normal text-nowrap">{item.modal}</p>
-                      </div>
-                    </div>
+                    </UpdateFollower>
                   )
                 })}
               </div>
