@@ -11,7 +11,11 @@ const Banner = () => {
     <section>
       <div className="container py-14 grid grid-cols-1 md:grid-cols-2 space-y-6 md:space-y-0 gap-12">
       {/* Banner Image */}
-      <div>
+      <motion.div
+          variants={fadeup(0.2)}
+          initial="hidden"
+          whileInView="show"
+      >
         <motion.img
           initial={{
             opacity:0,
@@ -29,12 +33,9 @@ const Banner = () => {
             ease:"easeInOut"
           }}
           src={HeadPhone4} className="w-[300px] md:w-[400px]"></motion.img>
-      </div>
+      </motion.div>
       {/* Banner Text info */}
       <div
-        variants={fadeup(0.2)}
-        initial="hidden"
-        whileInView="show"
        className="flex flex-col justify-center">
         <div className="text-center md:text-left space-y-4 lg:max-w-[450px]">
           <motion.h1

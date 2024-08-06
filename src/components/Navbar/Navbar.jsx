@@ -20,24 +20,24 @@ const NavbarMenu = [
   {
     id: 1,
     title: "Home",
-    link: "#",
+    link: "https://github.com/HashirAKB",
   },
   {
     id: 2,
     title: "Categories",
-    link: "#",
+    link: "https://github.com/HashirAKB",
   },{
     id: 3,
     title: "Blog",
-    link: "#",
+    link: "https://github.com/HashirAKB",
   },{
     id: 4,
     title: "About",
-    link: "#",
+    link: "https://github.com/HashirAKB",
   },{
     id: 5,
     title: "Contact",
-    link: "#",
+    link: "https://github.com/HashirAKB",
   },
 ]
 const Navbar = () => {
@@ -51,7 +51,7 @@ const Navbar = () => {
        className="container flex justify-between items-center">
         {/** Logo Section*/}
         <div>
-          <a href="#" className="text-xl font-bold uppercase">
+          <a href="https://github.com/HashirAKB" className="text-xl font-bold uppercase">
             Playing / <span className="font-extralight text-white/70">Market</span>
           </a>
         </div>
