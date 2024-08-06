@@ -83,7 +83,7 @@ const Hero = () => {
   return (
     <>
       <section className="bg-brandDark text-white font-varela">
-        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[700px]">
+        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
           {/* Headphone Info */}
           <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px]">
             <div className="space-y-5 text-center md:text-left">
@@ -144,13 +144,13 @@ const Hero = () => {
               </UpdateFollower>
               </AnimatePresence>
               {/* Headphone list separator */}
-              <div className="flex items-center justify-center md:justify-start gap-4 !mt-24">
+              <div className="flex items-center justify-center md:justify-start gap-10 !mt-24">
                 <div className="w-20 h-[1px] bg-white"></div>
                 <p className="uppercase text-sm">Top headphones for you.</p>
                 <div className="w-20 h-[1px] bg-white"></div>
               </div>
               {/* Headphone list switcher */}
-              <div className="grid grid-cols-4 gap-10">
+              <div className="grid grid-cols-4 gap-5">
                 {headphoneData.map((item) => {
                   return(
                     <UpdateFollower
@@ -167,7 +167,7 @@ const Hero = () => {
                       <div 
                       key={item.id}
                       onClick={() => handleActiveData(item)}
-                      className="grid grid-cols-2 place-items-center cursor-pointer">
+                      className="grid grid-cols-2 place-items-center cursor-pointer gap-3">
                         <div>
                           <img className="w-[200px]" src={item.image}></img>
                         </div>
@@ -184,11 +184,40 @@ const Hero = () => {
           </div>
           {/* Hero Image */}
           <div className="flex flex-col justify-end items-center">
-            <img className="w-[300px] md:w-[400px] xl:w-[550px]" src={activeData.image}></img>
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeData.id}
+              initial={{
+                opacity:0,
+                scale: 0.9,
+                y: 100,
+              }}
+              animate={{
+                opacity:1,
+                scale: 1,
+                y: 0,
+              }}
+              transition={{
+                duration:0.4,
+                delay:0.2,
+                ease:"easeInOut"
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.9,
+                y:100,
+                transition:{
+                  duration: 0.2
+                },
+              }}
+             className="w-[300px] md:w-[400px] xl:w-[550px]" 
+             src={activeData.image}
+             />
+          </AnimatePresence>
           </div>
           {/* Whatsapp Icon */}
           <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[99999] mix-blend-difference">
-          <a href="">
+          <a href="https://github.com/HashirAKB">
             <FaWhatsapp/>
           </a>
           </div>

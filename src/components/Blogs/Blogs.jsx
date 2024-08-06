@@ -12,28 +12,28 @@ const blogData = [
     id:1,
     title: "Lorem ipsum odor amet",
     desc:"Lorem ipsum odor amet, consectetuer adipiscing elit. Sem tristique pulvinar erat torquent interdum ultricies. Felis varius justo aliquam, diam feugiat tincidunt. Integer hac fermentum elementum himenaeos netus condimentum.",
-    link:"#",
+    link:"https://github.com/HashirAKB",
     img:Blog1
   },
   {
     id:2,
     title: "Lorem ipsum odor amet",
     desc:"Lorem ipsum odor amet, consectetuer adipiscing elit. Sem tristique pulvinar erat torquent interdum ultricies. Felis varius justo aliquam, diam feugiat tincidunt. Integer hac fermentum elementum himenaeos netus condimentum.",
-    link:"#",
+    link:"https://github.com/HashirAKB",
     img:Blog2
   },
   {
     id:3,
     title: "Lorem ipsum odor amet",
     desc:"Lorem ipsum odor amet, consectetuer adipiscing elit. Sem tristique pulvinar erat torquent interdum ultricies. Felis varius justo aliquam, diam feugiat tincidunt. Integer hac fermentum elementum himenaeos netus condimentum.",
-    link:"#",
+    link:"https://github.com/HashirAKB",
     img:Blog3
   },
   {
     id:4,
     title: "Lorem ipsum odor amet",
     desc:"Lorem ipsum odor amet, consectetuer adipiscing elit. Sem tristique pulvinar erat torquent interdum ultricies. Felis varius justo aliquam, diam feugiat tincidunt. Integer hac fermentum elementum himenaeos netus condimentum.",
-    link:"#",
+    link:"https://github.com/HashirAKB",
     img:Blog4
   },
 
@@ -49,7 +49,7 @@ const Blogs = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {blogData.map((data) => {
               return(
-                <>
+                <div key={data.id}>
                 <UpdateFollower
                     key={data.id}
                     mouseOptions={{
@@ -73,7 +73,7 @@ const Blogs = () => {
                     </div>
                   </div>
                     </UpdateFollower>
-                </>
+                </div>
               )
             })}
           </div>
