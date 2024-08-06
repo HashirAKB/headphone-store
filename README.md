@@ -2,6 +2,8 @@
 
 Simple frontend project which uses react, tailwindCSS, and Framer-motion.
 
+https://hashirakb.github.io/headphone-store/
+
 ### Features: 
  - 👉🏻 Responsive Animated Headphone Store website.
  - 👉🏻 Framer-motion Animation.
