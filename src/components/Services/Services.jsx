@@ -65,7 +65,7 @@ const Services = () => {
      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {ServicesData.map((data) => (
         <UpdateFollower
-          key={data.id}
+          // key={data.id}
           mouseOptions={{
            backgroundColor:"white",
            zIndex:9999,
@@ -74,13 +74,9 @@ const Services = () => {
            scale:5,
            mixBlendMode: "darken",
            backgroundElement: (
-            <motion.div
-              variants={fadeup(data.delay)}
-              initial="hidden"
-              whileInView="show"
-            >
+            <div>
               <img src={data.icon}/>
-            </motion.div>
+            </div>
            )}}
         >
           <div className="flex flex-col items-center justify-center p-5 max-w-[300px] mx-auto shadow-lg rounded-xl bg-white">
